@@ -17,6 +17,10 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/seatbooking/seatbooking.socket').register(socket);
+  require('../api/moviemapping/moviemapping.socket').register(socket);
+  require('../api/theater/theater.socket').register(socket);
+  require('../api/movie/movie.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 
 }

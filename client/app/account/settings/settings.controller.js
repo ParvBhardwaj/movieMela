@@ -1,8 +1,8 @@
 'use strict';
 
 class SettingsController {
-  errors = {};
-  submitted = false;
+  // errors = {};
+  // submitted = false;
 
   constructor(Auth) {
     this.Auth = Auth;
