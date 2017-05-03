@@ -8,31 +8,31 @@
                 <button class="btn btn-success" ng-click="movieCtrl.AddMovies()">Add</button>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="body>" <div class="col-md-6">
             <table class="table">
                 <tr>
                     <th>Title</th>
                     <td>{{movieCtrl.movieData.Title}}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Year</td>
+                    <td>{{movieCtrl.movieData.Year}}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Director</td>
+                    <td>{{movieCtrl.movieData.Director}}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Actors</td>
+                    <td>{{movieCtrl.movieData.Actors}}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>Genre</td>
+                    <td>{{movieCtrl.movieData.Genre}}</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>IMDBRating</td>
+                    <td>{{movieCtrl.movieData.imdbRating}}</td>
                 </tr>
             </table>
 
@@ -80,5 +80,7 @@
                 </tr>
             </table>
         </div>
+
     </div>
+</div>
 </div>
