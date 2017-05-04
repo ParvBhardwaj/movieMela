@@ -40,5 +40,37 @@
 
 body
 {
-  background-image: url('../img/bckim.jpg');
+    background-image: url('../img/bckim.jpg');
+  /*background-size: 1800px 600px;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    background-size: cover;
+}
+
+/*.well{
+  background: tomato;
+}*/
+
+.rotate {
+    /*width: 80px;
+    height: 28px;
+    background-color: yellow;*/
+    /* Rotate div */
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+}
+
+
+.seatno
+{
+    height:20px;
+width:30px;
+    background-image: url('../img/bf.png');
+    background-position: center;
+    background-size: 90%;
+  /*background-color: orange; */
+    color: 'black'
 }
