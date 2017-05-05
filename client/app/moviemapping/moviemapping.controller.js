@@ -16,10 +16,25 @@
       });
     }
 
+    Addmoivemapping() {
+      alert("hogyaa");
+      console.log(this.moviemappingData);
+
+      this.$http.post('/api/moviemapping',
+        angular.toJson(this.moviemappingData)
+      );
+      console.log(this.moviemappingData);
+      this.MovieName = '';
+      this.CityName = '';
+      this.CineName = '';
+      this.ShowTimings = '';
+      this.ScheduleDate = '';
+    }
     $onInit() {
       this.$http.get('/api/theaters').then(response => {
         this.alltheaterData = response.data;
         this.socket.syncUpdates('theaters', this.alltheaterData);
+        alert(this.alltheaterData);
       });
 
       this.$http.get('/api/movies').then(response => {

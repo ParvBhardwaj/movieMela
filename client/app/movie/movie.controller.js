@@ -35,7 +35,7 @@
     $onInit() {
       this.$http.get('/api/movies').then(response => {
         this.allMoviesData = response.data;
-        this.socket.syncUpdates('movies', this.allMoviesData);
+        this.socket.syncUpdates('movie', this.allMoviesData);
       });
     }
 

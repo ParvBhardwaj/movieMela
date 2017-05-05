@@ -40,15 +40,45 @@
         </div>
     </div>
 
-
-
     <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  movieCtrl.allMoviesData">
-            <h3>
-                <span class="center-block label label-default">{{movie.Title}}</span>
-                <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
-                <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
-            </h3>
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <strong>
+                    <td>Title</td>
+                    <td>Poster</td>
+
+                    <td>Year</td>
+                    <td>Director</td>
+                    <td>Genre</td>
+                    <td>Actors</td>
+                    <td> Language</td>
+                    <td>Writer</td>
+                    <td>Plot</td>
+                    <td>Country</td>
+
+                    <td>imdbRating</td>
+                    <td>Runtime</td>
+                </strong>
+                </tr>
+                <tr ng-repeat="m in movieCtrl.allMoviesData">
+                    <td>{{m.Title}}</td>
+                    <td><img ng-src="{{m.Poster}}" /></td>
+                    <td>{{m.Year}}</td>
+                    <td>{{m.Director}}</td>
+                    <td>{{m.Genre}}</td>
+                    <td>{{m.Actors}}</td>
+                    <td>{{m.Language}}</td>
+                    <td>{{m.Writer}}</td>
+                    <td>{{m.Plot}}</td>
+                    <td>{{m.Country}}</td>
+                    <td>{{m.imdbRating}}</td>
+                    <td>{{m.Runtime}}</td>
+                    <td>
+                        <button type="button" class="close" ng-click="movieCtrl.deleteThing(m)">&times;</button>
+                    </td>
+                </tr>
+            </table>
         </div>
 
     </div>

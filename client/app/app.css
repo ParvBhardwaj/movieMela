@@ -38,7 +38,7 @@
   padding: 0.2em 0;
 }
 
-body
+/*body
 {
     background-image: url('../img/bckim.jpg');
   /*background-size: 1800px 600px;*/
@@ -47,7 +47,7 @@ body
     background-position: center;
 
     background-size: cover;
-}
+}*/
 
 /*.well{
   background: tomato;
