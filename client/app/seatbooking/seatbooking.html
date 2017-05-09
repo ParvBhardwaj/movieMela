@@ -1,13 +1,16 @@
-<div class="container well">
+<div class="container">
     <div class="row">
         <div class="col-md-8">
-
             <div class="well" style="font-size:10px;color:blue">
-
                 <table class="table">
+                    <!--<th style="font-size:10px;color:blue">-->
+                    <tr>
+                        <th colspan="10" class="text-center">GOLD-300</th>
+                    </tr>
+                    </th>
                     <tr>
                         <td>
-                            <div class="seatno" id="A1">A1</div>
+                            <div ng-click="seatbookingCtrl.sClick('A1')" class="seatno" id="A1">A1</div>
                         </td>
                         <td>
                             <div class="seatno" id="A2">A2</div>
@@ -116,6 +119,8 @@
                             <font color="red">EXIT</font>
                         </td>
                     </tr>
+
+                    <th colspan="10" class="text-center">SILVER-250</th>
                     <tr>
                         <td></td>
                         <td>
@@ -298,9 +303,13 @@
                         </td>
                     </tr>
                     <tr>
+
+                        <th colspan="10" class="text-center">PLATINIUM-200</th>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td>
-                            <div class="seatno" id="I1">I1</div>
+                            <div class="seatno" id="i1">i1</div>
                         </td>
 
                         <td>
@@ -447,9 +456,49 @@
        table with 20 row and 10 coloum    table>tr*20>td*10>
 -->
         </div>
-        <div class="col-md-4">
-            <!-- booking  coding-->
-
+        <div class="col-md-4 ">
+            <table class="table">
+                <tr>
+                    <td>
+                        <tr>
+                            <tr>
+                                <td>
+                                    <h4> Booking Summary</h4>
+                                </td>
+                            </tr>
+                            <td>No.  of seat selected</td>
+                            <td>{{moviemappingCtrl.moviemappingData.MovieName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Selected Seats</td>
+                            <!--<td>{{moviemappingCtrl.selectedSeats}}</td>-->
+                        </tr>
+                        <tr>
+                            <td>Cine Name</td>
+                            <td>{{moviemappingCtrl.moviemappingData.CineName }}</td>
+                        </tr>
+                        <tr>
+                            <td>Show Timings</td>
+                            <td>{{moviemappingCtrl.moviemappingData.ShowTimings }}</td>
+                        </tr>
+                        <tr>
+                            <td>Schedule Date </td>
+                            <td>{{moviemappingCtrl.moviemappingData.ScheduleDate }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ticket Price</td>
+                            <td>{{movieCtrl.movieData.imdbRating}}</td>
+                        </tr>
+                        <tr>
+                            <td>Online Charge</td>
+                            <td>{{movieCtrl.movieData.imdbRating}}</td>
+                        </tr>
+                        <tr>
+                            <td><button class="btn btn-success" ng-click="paymentCtrl.Addpayment()">Submit</button></td>
+                        </tr>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

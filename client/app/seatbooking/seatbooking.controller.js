@@ -7,28 +7,39 @@
 
       this.$http = $http;
       this.socket = socket;
+      this.$scope = $scope;
+      this.selectedSeats = [];
+
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('seatbooking');
       });
+
     }
 
+
     $onInit() {
-      // $(document).ready(function () {
-      //   $('.seatno').click(function () {
-      //     var id = $(this).attr('id');
-      //     alert(id);
-      //     $('#' + id).css('background-color', 'red');
-      //   });
-      // });
+      var selectedSeats = this.selectedSeats;
+
+      this.$scope.$watch(selectedSeats, function (nval) {
+        this.selectedSeats = nval;
+      });
 
 
       $(document).on('click', '.seatno', function (event) {
-        //alert(event.target.id);
-        $('#' + event.target.id).css('background-color', 'red');
-        
+        var found = selectedSeats.indexOf(event.target.id);
+
+        if (found > -1) {
+          $('#' + event.target.id).css('background-color', '#FF3333');
+          selectedSeats.splice(found, 1);
+        }
+        else {
+          $('#' + event.target.id).css('background-color', '#96FF33');
+          selectedSeats.push(event.target.id);
+        }
+        console.log(selectedSeats);
+
       });
     }
-
 
   }// end class
 

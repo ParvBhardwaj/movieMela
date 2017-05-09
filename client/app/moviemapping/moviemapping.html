@@ -1,150 +1,105 @@
 <div class="container well well-sm">
+    <h1><b>Schedule Movie Show&Time</b></h1>
     <div class="row">
-        <!--<div class="col-md-8">
-            <pre>
-                {{moviemappingCtrl.alltheaterData}}
-            </pre>
-            <pre>
-                {{moviemappingCtrl.allMoviesData}}
-            </pre>
-        </div>-->
-    </div>
-    <div>
-        <div class="row">
-            <div class="container">
-                <div class="col-md-8 ">
-                    <table class=" table">
-                        <tr>
-                            <td>
-
-                                <tr>
-                                    <td>
-                                        <h1><b>Schedule Movie Show&Time</b></h1>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4>Movie Name:</h4>
-                                    </td>
-                                    <td>
-                                        <select>
-                            <option value="" selected>
-                                <h4>Select Movie</h4>
-                            </option>
-                            <option ng-repeat="x in moviemappingCtrl.allMoviesData" value="{{x}}">
+        <div class="col-md-5 ">
+            <table class=" table">
+                <tr>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Movie Name:</h4>
+                    </td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.movie">
+                            <option value="">Select Movie </option>
+                            <option ng-repeat="x in moviemappingCtrl.allMoviesData" value="{{x.Title}}">
                                 {{x.Title}}
                             </option>    
                             </select>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h4>City Name:</h4>
-                                    </td>
-                                    <td>
-                                        <select>
-                                                <option value=""  selected><h4>Select City</h4></option>
-                                                <option  ng-repeat="c in moviemappingCtrl.alltheaterData | unique:'City' "  value="{{c}}">
-                                            {{c.City}}
-                                                </option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <!--<select ng-options="rec.Title for rec in moviemappingCtrl.allMoviesData">  </select>-->
-
-                                <!--<select ng-model="theaterCtrl.alltheaterData">
-<option ng-repeat="d in theaterCtrl.alltheaterData">
-        {{d.theaterCtrl.alltheaterData}}
-    </option>
-</select>-->
-                                <tr>
-                                    <td>
-                                        <h4> Cine Name:</h4>
-                                    </td>
-                                    <td> <select>
-                <option value="" selected ><h2>Select Cine</h2></option>
-                <option ng-repeat="y in moviemappingCtrl.alltheaterData " value="{{y}}" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>City Name:</h4>
+                    </td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.city">
+                            <option value="">Select City</option>
+                            <option  ng-repeat="c in moviemappingCtrl.alltheaterData | unique:'City' "  value="{{c.City}}">
+                                {{c.City}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4> Cine Name:</h4>
+                    </td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.cine">
+                <option value="">Select Cine</option>
+                <option value = "{{y.Cine}}" ng-repeat="y in moviemappingCtrl.alltheaterData | filter: {'City' : moviemappingCtrl.mmrec.city}" >
              {{y.Cine}}
                 </option>
                                         </select>
-                                        <!--
-                <select ng-model="orderProp" > | unique: 'customer.id'
-  <option ng-repeat="place in places " value="{{place.alltheaterData}}">{{place.alltheaterData}}</option>
-</select>
--->
-
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <h4>Show Timings:</td>
-                                    <td><select>
-        <option value="" selected>00</option>
-                <option value="" selected>12</option>
-        <option value="" selected>03</option>
-        <option value="" selected>06</option>
-        <option value="" selected>09</option></select>
-                                        <select><option value="" selected>00</option></select>
-                                        <select><option value="" selected>AM</option>
-                                    <option value="" selected>PM</option></select>
-
-                                        <button class="btn btn-success" ng-click="">ADD</button>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4> Schedule Date:</h4>
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control" <button class="btn btn-success" ng-cick=""></button>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <button class="btn btn-danger" ng-click="moviemappingCtrl.addmoviemapping()">SUBMIT</button></td>
-                                </tr>
-                                <!--</div>-->
-                        </tr>
-                        </td>
-                        <tr>
-                            <td>
-                                <tr>
-                                    <tr>
-                                        <td>
-                                            <h4> Booking Summary</h4>
-                                        </td>
-                                    </tr>
-                                    <td>Movie Name</td>
-                                    <td>{{moviemappingCtrl.moviemappingData.MovieName}}</td>
-                                </tr>
-                                <tr>
-                                    <td>City Name</td>
-                                    <td>{{moviemappingCtrl.moviemappingData.CityName }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Cine Name</td>
-                                    <td>{{moviemappingCtrl.moviemappingData.CineName }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Show Timings</td>
-                                    <td>{{moviemappingCtrl.moviemappingData.ShowTimings }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Schedule Date </td>
-                                    <td>{{moviemappingCtrl.moviemappingData.ScheduleDate }}</td>
-                                </tr>
-                                <tr>
-                                    <td>IMDBRating</td>
-                                    <td>{{movieCtrl.movieData.imdbRating}}</td>
-                                </tr>
-                            </td>
-                        </tr>
-                    </table>
 
 
-                </div>
-            </div>
+                        <!--<select class="form-control text-uppercase" ng-model="$ctrl.showData.slot_id" ng-change="$ctrl.selectSlot()">
+                      <option value={{m._id}}   ng-repeat="m in $ctrl.allCinemas | filter : {'name': $ctrl.showData.name}" >
+                         {{m.slot}}
+                      </option>
+                  </select>-->
+
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h4>Show Timings:</td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.hr">
+                            <option value="00" selected>00</option>
+                            <option value="12" selected>12</option>
+                            <option value="03" selected>03</option>
+                            <option value="06" selected>06</option>
+                            <option value="09" selected>09</option>
+                            </select>
+                        <select ng-model="moviemappingCtrl.mmrec.min">
+                            <option value="00" selected>00</option>
+                            </select>
+                        <select ng-model="moviemappingCtrl.mmrec.ampm">
+                            <option value="am" selected>AM</option>
+                                    <option value="pm" selected>PM</option>
+                        </select>
+
+                        <button class="btn btn-success" ng-click="moviemappingCtrl.pushTime()">ADD</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        {{moviemappingctrl.mmrec.hr + ':' + moviemappingctrl.mmrec.min + ' ' + moviemappingctrl.mmrec.ampm;}} {{moviemappingctrl.mmrec.time}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4> Schedule Date:</h4>
+                    </td>
+                    <td>
+                        <input type="date" class="form-control">
+                        <button class="btn btn-success" ng-click="moviemappingCtrl.pushDate()">ADD</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <button class="btn btn-danger">SUBMIT</button></td>
+                </tr>
+            </table>
         </div>
+        <div class="col-md-4">
+            <pre>{{moviemappingCtrl.MovieName}}</pre>
+            <!--<img ng-repeat="{moviemappingCtrl.MoviePoster}" />-->
+            <img ng-src="x in moviemappingCtrl.allMoviesData" value="{{x.Poster}}" />
+        </div>
+    </div>
