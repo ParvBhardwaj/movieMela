@@ -40,7 +40,8 @@ var MovieSchema = new mongoose.Schema({
   BoxOffice: String,
   Production: String,
   Website: String,
-  Response: String
+  Response: String,
+  Status: String
 });
 
 export default mongoose.model('Movie', MovieSchema);

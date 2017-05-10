@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -36,51 +36,17 @@
 
 
 
-      <div ng-repeat="p in mainCtrl.allMoviesData">
 
-        <table class="table">
-          <tr>
-            <th>Title</th>
-            <th>{{p.Title}}</th>
-            <th>{{p.Poster}}</th>
-            <th>Year</th>
-            <th>Director</th>
-            <td>{{p.Director}}</td>
-            <th>Genre</th>
-            <th>Actors</th>
-            <th> Language</th>
-            <th>Writer</th>
-            <th>Plot</th>
-            <th>Country</th>
-            <th>imdbRating</th>
-            <th>Runtime</th>
-          </tr>
-          <tr>
-            <td><img ng-src="{{p.Poster}}" /></td>
-            <td>{{p.Year}}</td>
-
-            <td>{{p.Genre}}</td>
-            <td>{{p.Actors}}</td>
-            <td>{{p.Language}}</td>
-            <td>{{p.Writer}}</td>
-            <td>{{p.Plot}}</td>
-            <td>{{p.Country}}</td>
-            <td>{{p.imdbRating}}</td>
-            <td>{{p.Runtime}}</td>
-          </tr>
-        </table>
-
-
-        <div class="row">
-          <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  movieCtrl.allMoviesData">
-            <h3>
-              <span class="center-block label label-default">{{movie.Title}}</span>
-              <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
-              <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
-            </h3>
-          </div>
-
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  mainCtrl.allMoviesData">
+          <h3>
+            <span class="center-block label label-default">{{movie.Title}}</span>
+            <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
+            <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
+          </h3>
         </div>
+
       </div>
     </div>
   </div>
+</div>

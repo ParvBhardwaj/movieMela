@@ -7,7 +7,7 @@ var MoviemappingSchema = new mongoose.Schema({
   city: String,
   cine: String,
   time: [String],
-  date: [Date]
+  date: [String]
 });
 
 export default mongoose.model('Moviemapping', MoviemappingSchema);

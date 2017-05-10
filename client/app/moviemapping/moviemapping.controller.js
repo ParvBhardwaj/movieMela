@@ -20,27 +20,35 @@
       });
     }
     pushTime() {
-      //
+      // push selected time in array 
       var vtime = this.mmrec.hr + ':' + this.mmrec.min + ' ' + this.mmrec.ampm;
       alert(vtime);
       this.mmrec.time.push(vtime);
     }
     pushDate() {
-      //pushselected date in array
+      //push selected date in array
+
+      var vdate = this.mmrec.sdate.toJSON().substr(0, 10);
+      alert(vdate);
+      this.mmrec.date.push(vdate);
+
     }
     Addmoivemapping() {
-      alert("hogyaa");
-      console.log(this.moviemappingData);
+      this.mmrec.movie = this.mmrec.movieObj.Title;
+      alert(JSON.stringify(this.mmrec));
 
-      this.$http.post('/api/moviemapping',
-        angular.toJson(this.moviemappingData)
+      this.$http.post('/api/moviemappings',
+        angular.toJson(this.mmrec)
       );
-      console.log(this.moviemappingData);
-      // this.MovieName = '';
-      // this.CityName = '';
-      // this.CineName = '';
-      // this.ShowTimings = '';
-      // this.ScheduleDate = '';
+
+      this.$http.put('/api/movies' + this.mmrec.movieObj._id,
+        {
+          Status: 'running'
+        }
+      );
+
+
+      this.mmrec = {};
     }
     $onInit() {
       this.$http.get('/api/theaters').then(response => {
