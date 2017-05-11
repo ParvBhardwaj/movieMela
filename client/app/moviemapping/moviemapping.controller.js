@@ -35,20 +35,21 @@
     }
     Addmoivemapping() {
       this.mmrec.movie = this.mmrec.movieObj.Title;
+      debugger;
       alert(JSON.stringify(this.mmrec));
 
       this.$http.post('/api/moviemappings',
         angular.toJson(this.mmrec)
       );
 
-      this.$http.put('/api/movies' + this.mmrec.movieObj._id,
+      this.$http.put('/api/movies/' + this.mmrec.movieObj._id,
         {
           Status: 'running'
         }
       );
 
-
-      this.mmrec = {};
+      console.log(this.mmrec);
+      // this.mmrec = {};
     }
     $onInit() {
       this.$http.get('/api/theaters').then(response => {

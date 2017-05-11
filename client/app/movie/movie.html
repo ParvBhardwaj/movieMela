@@ -9,7 +9,7 @@
                 <button class="btn btn-success" ng-click="movieCtrl.AddMovies()">Add</button>
             </div>
         </div>
-        <div class="body>" <div class="col-md-6">
+        <!--<div class="body>" <div class="col-md-6">
             <table class="table" style="color:red;">
                 <tr>
                     <th>Title</th>
@@ -37,43 +37,43 @@
                 </tr>
             </table>
 
-            <div>
+            <div>-->
 
-                <table class="table">
-                    <tr style="color:red;">
-                        <th></th>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Director</th>
-                        <th>Genre</th>
-                        <th>Actors</th>
-                        <th>Language</th>
-                        <th>Writer</th>
-                        <th>Plot</th>
-                        <th>Country</th>
-                        <th>imdbRating</th>
-                        <th>Runtime</th>
-                    </tr>
-                    <tr ng-repeat="p in movieCtrl.allMoviesData">
-                        <td><img ng-src="{{p.Poster}}" height="70%" /></td>
-                        <td>{{p.Title}}</td>
-                        <td>{{p.Year}}</td>
-                        <td>{{p.Director}}</td>
-                        <td>{{p.Genre}}</td>
-                        <td>{{p.Actors}}</td>
-                        <td>{{p.Language}}</td>
-                        <td>{{p.Writer}}</td>
-                        <td>{{p.Plot}}</td>
-                        <td>{{p.Country}}</td>
-                        <td>{{p.imdbRating}}</td>
-                        <td>{{p.Runtime}}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <table class="table">
+            <tr style="color:red;">
+                <th></th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Genre</th>
+                <th>Actors</th>
+                <th>Language</th>
+                <th>Writer</th>
+                <th>Plot</th>
+                <th>Country</th>
+                <th>imdbRating</th>
+                <th>Runtime</th>
+            </tr>
+            <tr ng-repeat="p in movieCtrl.allMoviesData">
+                <td><img ng-src="{{p.Poster}}" height="70%" /></td>
+                <td>{{p.Title}}</td>
+                <td>{{p.Year}}</td>
+                <td>{{p.Director}}</td>
+                <td>{{p.Genre}}</td>
+                <td>{{p.Actors}}</td>
+                <td>{{p.Language}}</td>
+                <td>{{p.Writer}}</td>
+                <td>{{p.Plot}}</td>
+                <td>{{p.Country}}</td>
+                <td>{{p.imdbRating}}</td>
+                <td>{{p.Runtime}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
 
 
-        <!--
+<!--
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  movieCtrl.allMoviesData">
                 <h3>
@@ -84,5 +84,5 @@
             </div>
 
         </div>-->
-    </div>
+</div>
 </div>

@@ -12,11 +12,12 @@
                         <h4>Movie Name:</h4>
                     </td>
                     <td>
-                        <select ng-model="moviemappingCtrl.mmrec.movieObj">
+                        <!--ng-options="m.OMDBID as m.name for m in $ctrl.allCinemas"-->
+                        <select ng-options="m.Title for m in moviemappingCtrl.allMoviesData" ng-model="moviemappingCtrl.mmrec.movieObj">
                             <option value="">Select Movie </option>
-                            <option ng-repeat="x in moviemappingCtrl.allMoviesData" value="{{x}}">
+                            <!--<option ng-repeat="x in moviemappingCtrl.allMoviesData" ng-value="{{x}}">
                                 {{x.Title}}
-                            </option>    
+                            </option>    -->
                             </select>
                     </td>
                 </tr>
@@ -45,14 +46,6 @@
                 </option>
                                         </select>
 
-
-                        <!--<select class="form-control text-uppercase" ng-model="$ctrl.showData.slot_id" ng-change="$ctrl.selectSlot()">
-                      <option value={{m._id}}   ng-repeat="m in $ctrl.allCinemas | filter : {'name': $ctrl.showData.name}" >
-                         {{m.slot}}
-                      </option>
-                  </select>-->
-
-
                     </td>
                 </tr>
 
@@ -61,18 +54,21 @@
                         <h4>Show Timings:</td>
                     <td>
                         <select ng-model="moviemappingCtrl.mmrec.hr">
-                            <option value="00" selected>00</option>
-                            <option value="12" selected>12</option>
+                            <option value="00">00</option>
+                            <option value="12" >12</option>
                             <option value="03" selected>03</option>
-                            <option value="06" selected>06</option>
-                            <option value="09" selected>09</option>
+                            <option value="06" >06</option>
+                            <option value="09">09</option>
                             </select>
                         <select ng-model="moviemappingCtrl.mmrec.min">
                             <option value="00" selected>00</option>
+                             <option value="10" selected>10</option>
+                              <option value="20" selected>20</option>
+                               <option value="40" selected>40</option>
                             </select>
                         <select ng-model="moviemappingCtrl.mmrec.ampm">
                             <option value="am" selected>AM</option>
-                                    <option value="pm" selected>PM</option>
+                                    <option value="pm" >PM</option>
                         </select>
 
                         <button class="btn btn-success" ng-click="moviemappingCtrl.pushTime()">ADD</button>
@@ -108,8 +104,7 @@
             </table>
         </div>
         <div class="col-md-4">
-            <pre>{{moviemappingCtrl.MovieName}}</pre>
-            <!--<img ng-repeat="{moviemappingCtrl.MoviePoster}" />-->
-            <img ng-src="moviemappingCtrl.mmrec.movieObj.Poster" />
+            <pre>{{moviemappingCtrl.mmrec.movieObj}}</pre>
+            <img ng-src="moviemappingCtrl.allMoviesData.Poster  moviemappingCtrl.mmrec.movieObj.Poster" />
         </div>
     </div>

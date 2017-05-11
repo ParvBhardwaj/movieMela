@@ -17,6 +17,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/runningmovie/runningmovie.socket').register(socket);
   require('../api/payment/payment.socket').register(socket);
   require('../api/seatbooking/seatbooking.socket').register(socket);
   require('../api/moviemapping/moviemapping.socket').register(socket);

@@ -41,9 +41,10 @@
 
     getOmdbMovie() {
       // alert('data at search ' + this.Name + this.Year);
+      //http://www.omdbapi.com/?t=dangal&y=2016
       this.$http.get('http://www.omdbapi.com/?t=' + this.Name + '&y=' + this.Year + '&plot=short&r=json')
         .then(response => {
-          // alert(JSON.stringify(response));
+          alert(JSON.stringify(response));
           this.movieData = response.data;
           this.socket.syncUpdates('movie', this.movieData);
         });

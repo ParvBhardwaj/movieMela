@@ -38,12 +38,15 @@
 
 
       <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  mainCtrl.allMoviesData">
-          <h3>
-            <span class="center-block label label-default">{{movie.Title}}</span>
-            <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
-            <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
-          </h3>
+        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  mainCtrl.allMoviesData | filter: {Status : 'running'}">
+          <a href="D:\Project\movieMela\client\app\runningmovie\runningmovie.html">
+            <h3>
+              <span class="center-block label label-default">{{movie.Title}}</span>
+              <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
+              <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
+            </h3>
+          </a>
+
         </div>
 
       </div>
