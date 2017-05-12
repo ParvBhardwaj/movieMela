@@ -464,33 +464,37 @@
                             <tr>
                                 <td>
                                     <h4> Booking Summary</h4>
+                                    <pre>
+                                        {{moviemappingCtrl.book2pay}}
+                                    </pre>
                                 </td>
                             </tr>
-                            <td>No.  of seat selected</td>
-                            <td>{{moviemappingCtrl.moviemappingData.MovieName}}</td>
+                            <td>No. of seat selected</td>
+                            <td>{{moviemappingCtrl.run2book.MovieName}}</td>
                         </tr>
                         <tr>
                             <td>Selected Seats</td>
-                            <!--<td>{{moviemappingCtrl.selectedSeats}}</td>-->
+                            <td> <span id="sSeats"> </span></td>
                         </tr>
                         <tr>
                             <td>Show Timings</td>
-                            <td>{{moviemappingCtrl.moviemappingData.ShowTimings }}</td>
+                            <td>{{moviemappingCtrl.moviemappingData.run2book.ShowTimings}} </td>
                         </tr>
                         <tr>
                             <td>Schedule Date </td>
-                            <td>{{moviemappingCtrl.moviemappingData.ScheduleDate }}</td>
+                            <td>{{moviemappingCtrl.moviemappingData.run2book}}
+                            </td>
                         </tr>
                         <tr>
                             <td>Ticket Price</td>
-                            <td>{{movieCtrl.movieData.imdbRating}}</td>
+                            <td>{{movieCtrl.movieData.run2book}}</td>
                         </tr>
                         <tr>
                             <td>Online Charge</td>
-                            <td>{{movieCtrl.movieData.imdbRating}}</td>
+                            <td>{{movieCtrl.run2book.imdbRating}}</td>
                         </tr>
                         <tr>
-                            <td><button class="btn btn-success" ng-click="paymentCtrl.Addpayment()">Submit</button></td>
+                            <td><a href="/payment"><button class="btn btn-success" ng-click="paymentCtrl.Addpayment()">Submit</button></a></td>
                         </tr>
                     </td>
                 </tr>

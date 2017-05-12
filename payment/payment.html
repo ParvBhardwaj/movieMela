@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img src="img/cardpayment.png" alt="cardpay" class='img-center' width="100%" />
+                <div class="table">
+                    <div class="form-group">
+                        <tr>
+                            <td> Card type</td>
+                            <select>
+                            <option></option>
+                            <option>Debit Card </option>
+                            <option>Maestro Card </option>
+                            <option>Credit Card </option>
+                            <option>Master Card </option>
+                            <option>Visa</option>
+                        </select>
+                        </tr>
+                    </div>
+                    <div class="form- group>" <td> Name on card</td>
+                        <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.Cine" />
+
+                        <div class="form- group>" <td> Card number</td>
+                            <td> <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />
+                            </td>
+
+                            <td> CVV</td>
+                            <td> <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />
+                            </td>
+                        </div>
+                        <!--<input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />-->
+                        <td> Expiry date</td>
+                        </table>
+                    </div>
+
+                    <input type="date" class="form-control" <button class="btn btn-success" ng-click=""></button>
+
+                    <div class="col-md-8">
+                        <button class="btn btn-primary" ng-click="paymentCtrl.Addpayment()">Pay Now</button>
+
+                    </div>
+
+                </div>
+
+                <!--<tr>
+                        <th> Payment Mode</th>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            Name on card
+                        </td>
+                        <td input type='text'>
+                        </td>
+                    </tr>-->
+            </div>
+        </div>
+    </div>
+
+</div>

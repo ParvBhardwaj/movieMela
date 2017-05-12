@@ -4,8 +4,12 @@ import mongoose from 'mongoose';
 
 var PaymentSchema = new mongoose.Schema({
   name: String,
-  info: String,
-  active: Boolean
+  ContactNo: String,
+  emailId: String,
+  noSeats: Number,
+  amount: Number,
+  total: Number,
+  seats: [String]
 });
 
 export default mongoose.model('Payment', PaymentSchema);

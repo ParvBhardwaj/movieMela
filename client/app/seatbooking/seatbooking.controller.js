@@ -3,12 +3,16 @@
 (function () {
 
   class SeatbookingComponent {
-    constructor($http, $scope, socket) {
+    constructor($http, $scope, socket, $rootScope) {
 
       this.$http = $http;
       this.socket = socket;
       this.$scope = $scope;
-      this.selectedSeats = [];
+      this.$rootScope = $rootScope;
+      console.log($rootScope.run2book);
+      this.book2pay = $rootScope.run2book;
+
+      // this.selectedSeats = [];
 
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('seatbooking');
@@ -18,12 +22,7 @@
 
 
     $onInit() {
-      var selectedSeats = this.selectedSeats;
-
-      this.$scope.$watch(selectedSeats, function (nval) {
-        this.selectedSeats = nval;
-      });
-
+      var selectedSeats = [];
 
       $(document).on('click', '.seatno', function (event) {
         var found = selectedSeats.indexOf(event.target.id);
@@ -37,8 +36,14 @@
           selectedSeats.push(event.target.id);
         }
         console.log(selectedSeats);
+        var ss = document.getElementById('sSeats');
+        ss.innerHTML = selectedSeats.join(', ');
 
+        // $('#sSeats').innerHTML = selectedSeats.join(', ');
+        // debugger;
       });
+      //write code using 
+
     }
 
   }// end class
