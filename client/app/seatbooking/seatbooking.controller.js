@@ -9,8 +9,9 @@
       this.socket = socket;
       this.$scope = $scope;
       this.$rootScope = $rootScope;
+      
+      angular.copy($rootScope.run2book, this.book2pay);
 
-      this.book2pay = $rootScope.run2book;
       this.selectedSeats = [];
 
       $scope.$on('$destroy', function () {
@@ -19,7 +20,7 @@
 
     }// end constructor
     calcTotal() {
-      debugger;
+
       var total = 0.0;
 
       for (var s = 0; s < this.selectedSeats.length; s++) {
@@ -51,11 +52,12 @@
     }
 
     $onInit() {
-      // this.selectedSeats = ['z0'];
-
 
     }//end on init
-
+    Addpayment() {
+      this.$rootScope.book2pay = this.book2pay;
+      this.$rootScope.book2pay.selectedSeats = this.selectedSeats;
+    }
   }// end class
 
 

@@ -8,14 +8,20 @@
       this.socket = socket;
       this.$rootScope = $rootScope;
 
+      angular.copy($rootScope.book2pay, this.book2pay);
+
       this.paymentData = {};
-      this.allpaymentsData = {};
+
 
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('payment');
       });
-    }
-  }
+    }//end  constructor
+
+
+
+
+  }//end class PaymentComponent
 
   angular.module('movieMelaApp')
     .component('payment', {

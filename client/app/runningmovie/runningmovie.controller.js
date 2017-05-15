@@ -19,6 +19,7 @@
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('runningmovie');
       });
+      
 
     } //end constructor
     $onInit() {

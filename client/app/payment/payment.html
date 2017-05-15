@@ -49,6 +49,39 @@
             <pre>
                 {{paymentCtrl}}
             </pre>
+            <table class="table">
+                <tr>
+                    <td colspan="2">
+                        <h3><b>Order Summary</b></h3>
+                        <p>{{seatbookingCtrl}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Movie Name</td>
+                    <td>{{runningmovieCtrl.title}}</td>
+                </tr>
+                <tr>
+                    <td>Theatre Name</td>
+                    <td>{{runningmovieCtrl.Theatre}}</td>
+                </tr>
+                <tr>
+                    <td>Selected Seats</td>
+                    <td> {{paymentCtrl.showSelectedSeats}}</td>
+                </tr>
+                <tr>
+                    <td>Show Timings</td>
+                    <td>{{seatbookingCtrl.book2pay.time}} </td>
+                </tr>
+                <tr>
+                    <td>Schedule Date </td>
+                    <td>{{seatbookingCtrl.book2pay.date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Price</td>
+                    <td>{{seatbookingCtrl.Total}}</td>
+                </tr>
+            </table>
         </div>
     </div>
 
