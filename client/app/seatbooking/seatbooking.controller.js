@@ -18,7 +18,21 @@
       });
 
     }// end constructor
+    calcTotal() {
+      debugger;
+      var total = 0.0;
 
+      for (var s = 0; s < this.selectedSeats.length; s++) {
+        var row = this.selectedSeats[s].substring(0, 1);
+        if (row == 'A' || row == 'B' || row == 'C')
+          total += 300;
+        else if (row == 'D' || row == 'E' || row == 'F' || row == 'G')
+          total += 250;
+        else if (row == 'H' || row == 'I' || row == 'J' || row == 'K')
+          total += 200;
+      }
+      this.Total = total;
+    }
     sClick($event) {
       var elem = $event.currentTarget || $event.srcElement;
       var id = elem.id;
@@ -32,6 +46,8 @@
         this.selectedSeats.push(id);
       }
       console.log(this.selectedSeats);
+      this.showSelectedSeats = this.selectedSeats.join(', ');
+      this.calcTotal();
     }
 
     $onInit() {

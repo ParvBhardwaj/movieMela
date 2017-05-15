@@ -456,35 +456,34 @@
                         <h3>Selected Seats</h3>
                         <p>{{seatbookingCtrl}}</p>
                     </td>
-
-                </tr>
-                <tr>
-                    <td>No. of seat selected</td>
-                    <td>{{seatbookingCtrl.run2book.MovieName}}</td>
                 </tr>
                 <tr>
                     <td>Selected Seats</td>
-                    <td> <span id="sSeats">{{seatbookingCtrl.selectedSeats}} </span></td>
+                    <td> <span id="sSeats">{{seatbookingCtrl.showSelectedSeats}} </span></td>
                 </tr>
                 <tr>
                     <td>Show Timings</td>
-                    <td>{{seatbookingCtrl.moviemappingData.run2book.ShowTimings}} </td>
+                    <td><span>{{seatbookingCtrl.book2pay.time}}</span> </td>
                 </tr>
                 <tr>
                     <td>Schedule Date </td>
-                    <td>{{seatbookingCtrl.moviemappingData.run2book}}
+                    <td>{{seatbookingCtrl.book2pay.date}}
                     </td>
                 </tr>
                 <tr>
-                    <td>Ticket Price</td>
-                    <td>{{seatbookingCtrl.movieData.run2book}}</td>
+                    <td>Total Price</td>
+                    <td>{{seatbookingCtrl.Total}}</td>
                 </tr>
                 <tr>
                     <td>Online Charge</td>
-                    <td>{{seatbookingCtrl.run2book.imdbRating}}</td>
+                    <td>50</td>
                 </tr>
                 <tr>
-                    <td colspan="2"><a href="/payment" class="btn btn-success" ng-click="paymentCtrl.Addpayment()">Submit</a></td>
+                    <td colspan="2">
+                        <div>
+                            <a href="/payment" class="btn btn-success" ng-click="paymentCtrl.Addpayment()">Payment</a>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
