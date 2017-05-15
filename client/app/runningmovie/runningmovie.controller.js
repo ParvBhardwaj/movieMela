@@ -10,9 +10,9 @@
       this.$routeParams = $routeParams;
       this.$rootScope = $rootScope;
 
-      this.selectedmovie = {};
+      this.selectedmovie = [];
       this.selectedimdbID = $routeParams.imdbID;
-      this.selectedmapping = {};
+      this.selectedmapping = [];
 
 
 

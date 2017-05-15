@@ -8,7 +8,7 @@
       this.$http = $http;
       this.socket = socket;
       this.movieData = {};
-      this.allMoviesData = {};
+      this.allMoviesData = [];
 
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('movie');

@@ -6,7 +6,7 @@ module.exports = {
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/moviemela-dev'
+    uri: 'mongodb://127.0.0.1/moviemela-dev'
   },
 
   // Seed database on startup

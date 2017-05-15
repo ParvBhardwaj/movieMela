@@ -43,7 +43,7 @@
                       </span>
       </h2>
       <div class="row">
-        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  mainCtrl.allMoviesData | filter: {Status : 'running'}">
+        <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  mainCtrl.allMoviesData | filter:{Status : running}">
           <a href="/runningmovie/{{movie.imdbID}}">
             <h3>
               <span class="center-block label label-default">{{movie.Title}}</span>
