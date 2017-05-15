@@ -8,10 +8,10 @@
       this.socket = socket;
       this.$rootScope = $rootScope;
 
-      angular.copy($rootScope.book2pay, this.book2pay);
+      angular.merge(this.book2pay, $rootScope.book2pay);
 
       this.paymentData = {};
-
+      console.log(this.book2pay);
 
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('payment');

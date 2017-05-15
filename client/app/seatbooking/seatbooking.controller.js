@@ -9,9 +9,8 @@
       this.socket = socket;
       this.$scope = $scope;
       this.$rootScope = $rootScope;
-      
-      angular.copy($rootScope.run2book, this.book2pay);
 
+      angular.merge(this.book2pay, $rootScope.run2book);
       this.selectedSeats = [];
 
       $scope.$on('$destroy', function () {
