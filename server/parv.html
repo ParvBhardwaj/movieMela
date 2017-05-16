@@ -1,0 +1,14 @@
+<script>
+    var requestIp = require('request-ip');
+    // inside middleware handler
+    var ipMiddleware = function (req, res, next) {
+        var clientIp = requestIp.getClientIp(req); // on localhost > 127.0.0.1
+        next();
+    }
+</script>
+<!-- starting script code for on click hide/show -->
+<script>
+    $("#button").click(function () {
+        $("#p").show("slow");
+    });
+</script>

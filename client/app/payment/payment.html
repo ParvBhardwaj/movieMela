@@ -4,9 +4,9 @@
             <div>
                 <img src="img/cardpayment.png" alt="cardpay" class='img-center' width="100%" />
                 <div class="table">
-                    <div class="form-group">
+                    <span><div class="form-group">
                         <tr>
-                            <td> Card type</td>
+                            <td><b> Card Type</b></td>
                             <select>
                             <option></option>
                             <option>Debit Card </option>
@@ -16,27 +16,29 @@
                             <option>Visa</option>
                         </select>
                         </tr>
-                    </div>
-                    <div class="form- group>" <td> Name on card</td>
-                        <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.Cine" />
+                    </div></span>
+                    <div class="form- group>" <td><b> Name on Card</b></td>
+                        <input type="text" class="form-control" />
 
-                        <div class="form- group>" <td> Card number</td>
-                            <td> <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />
+                        <div class="form- group">
+                            <td><b> Card number</b></td>
+                            <td> <input type="text" maxlength="15" class="form-control" />
                             </td>
 
-                            <td> CVV</td>
-                            <td> <input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />
+                            <td><b> CVV</b></td>
+                            <td> <input type="text" maxlength="3" class="form-control" />
+
                             </td>
                         </div>
                         <!--<input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />-->
-                        <td> Expiry date</td>
+                        <td><b> Expiry date</b></td>
                         </table>
                     </div>
 
                     <input type="date" class="form-control" <button class="btn btn-success" ng-click=""></button>
 
                     <div class="col-md-8">
-                        <button class="btn btn-primary" ng-click="paymentCtrl.Addpayment()">Pay Now</button>
+                        <button class="btn btn-primary" ng-click="paymentCtrl.payNow()">Pay Now</button>
 
                     </div>
 
@@ -46,39 +48,39 @@
             </div>
         </div>
         <div class="col-md-6">
-            <pre>
-                {{paymentCtrl}}
-            </pre>
-            <table class="table">
+            <p>
+                {{paymentCtrl.bookdt}}
+            </p>
+            <table class="table" class="center-block label label-success">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="center-block label label-info">
                         <h3><b>Order Summary</b></h3>
                         <p>{{seatbookingCtrl}}</p>
                     </td>
                 </tr>
                 <tr>
-                    <td>Movie Name</td>
+                    <td><b>Movie Name</b></td>
                     <td>{{runningmovieCtrl.title}}</td>
                 </tr>
                 <tr>
-                    <td>Theatre Name</td>
+                    <td><b>Theatre Name</b></td>
                     <td>{{runningmovieCtrl.Theatre}}</td>
                 </tr>
                 <tr>
-                    <td>Selected Seats</td>
+                    <td><b>Selected Seats</b></td>
                     <td> {{paymentCtrl.showSelectedSeats}}</td>
                 </tr>
                 <tr>
-                    <td>Show Timings</td>
+                    <td><b>Show Timings</b></td>
                     <td>{{seatbookingCtrl.book2pay.time}} </td>
                 </tr>
                 <tr>
-                    <td>Schedule Date </td>
+                    <td><b>Schedule Date</b> </td>
                     <td>{{seatbookingCtrl.book2pay.date}}
                     </td>
                 </tr>
                 <tr>
-                    <td>Total Price</td>
+                    <td><b>Total Price</b></td>
                     <td>{{seatbookingCtrl.Total}}</td>
                 </tr>
             </table>

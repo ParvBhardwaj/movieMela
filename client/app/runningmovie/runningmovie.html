@@ -37,11 +37,13 @@
                 <span class="btn btn-info">{{r.time.join(', ')}}</span>-->
                 <h5><span class="btn btn-warning"> {{r.city}}</span>
                     <span class="btn btn-warning"> Theater :{{r.cine}} </span></h5>
-
-                <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date"> {{d}} </span><br>
-                <br>
+                <div id="button">
+                    <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date"> {{d}} </span><br>
+                </div> <br>
                 <a href="/seatbooking">
-                <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time"> {{t}} </span>
+                    <div id="p">
+                        <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time"> {{t}} </span>
+                    </div>
                 </a>
             </div>
         </div>

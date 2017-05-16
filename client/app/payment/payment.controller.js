@@ -7,11 +7,13 @@
       this.$http = $http;
       this.socket = socket;
       this.$rootScope = $rootScope;
+      this.bookdt = $rootScope.book2pay;
+      this.run2book = $rootScope.run2book;
 
-      angular.merge(this.book2pay, $rootScope.book2pay);
+      //angular.merge(this.book2pay, $rootScope.book2pay);
 
       this.paymentData = {};
-      console.log(this.book2pay);
+      console.log(this.bookdt);
 
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('payment');
@@ -19,7 +21,11 @@
     }//end  constructor
 
 
-
+    payNow() {
+      //two task 
+      // post payment to server
+      // post booking to server (it will update)
+    }
 
   }//end class PaymentComponent
 
