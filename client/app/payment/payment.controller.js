@@ -12,7 +12,7 @@
 
       //angular.merge(this.book2pay, $rootScope.book2pay);
 
-      this.paymentData = {};
+      this.payData = {};
       console.log(this.bookdt);
 
       $scope.$on('$destroy', function () {
@@ -22,9 +22,16 @@
 
 
     payNow() {
-      //two task 
-      // post payment to server
-      // post booking to server (it will update)
+      this.payData.total = this.bookdt.total;
+      
+      this.$http.post('/api/payments',
+        angular.toJson(this.payData)
+      );
+
+      this.$http.post('/api/seatbookings ',
+        angular.toJson(this.bookdt)
+      );
+
     }
 
   }//end class PaymentComponent

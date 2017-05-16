@@ -22,14 +22,14 @@
     pushTime() {
       // push selected time in array 
       var vtime = this.mmrec.hr + ':' + this.mmrec.min + ' ' + this.mmrec.ampm;
-      alert(vtime);
+      // alert(vtime);
       this.mmrec.time.push(vtime);
     }
     pushDate() {
       //push selected date in array
 
       var vdate = this.mmrec.sdate.toJSON().substr(0, 10);
-      alert(vdate);
+      // alert(vdate);
       this.mmrec.date.push(vdate);
 
     }

@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   class SeatbookingComponent {
     constructor($http, $scope, socket, $rootScope, $location) {
 
@@ -12,9 +11,10 @@
       this.$location = $location;
 
       this.SeatData = {};
-      this.AllSeatData = {};
+      this.bookedSeat = {};
       this.book2pay = {};
       angular.merge(this.book2pay, $rootScope.run2book);
+
       this.selectedSeats = [];
       this.intCharg = 50;
       $scope.$on('$destroy', function () {
@@ -22,61 +22,34 @@
       });
 
     }// end constructor
-    // seatbooking() {
 
-    //   this.$http.post('/api/seatbookings ',
+    $onInit() {
+      var uurl = '/api/seatbookings/booked/' + this.book2pay.date +
+        '/' + this.book2pay.time + '/' + this.book2pay.cine +
+        '/' + this.book2pay.movie;
 
-    //     // angular.toJson(this.selectedSeats)
-    //   );
+      this.$http.get(uurl)
+        .then(response => {
+          this.bookedSeat = response.data;
+          this.socket.syncUpdates('seatbookings', this.bookedSeat);
+          console.log(response.data);
 
-    //   var SeatbookingSchema = new mongoose.Schema({
-    //     movie: String,
-    //     city: String,
-    //     cine: String,
-    //     date: String,
-    //     time: String,
-    //     seats: [String]
-    //   });
+          var seats = document.getElementsByClassName('seatno');
+          for (var i = 0; i < seats.length; i++) {
+            var sx = seats[i];
+            var id = sx.id;
 
+            var findBooked = this.bookedSeat.selectedSeats.indexOf(id);
+            if (findBooked > -1)
+              sx.style = 'background-color:red;'
+          }
+        });
+      //disable booked  seats
 
-
-    // }
-    Addseat() {
-      alert("hogyaa");
-      // console.log(this.SeatData);
-
-      // this.$http.post('/api/seatbookings ',
-      //   angular.toJson(this.SeatData)
-      // );
-      // console.log(this.SeatData);
-      // this.Cine = '';
-      // this.City = '';
-      // this.movie = '',
-      //   this.city = '',
-      //   this.cine = '',
-      //   this.date = '',
-      //   this.time = '',
-      //   this.seats = [];
+    }//end on init
+    //ng-disabled="$ctrl.seatVisibleBar(row,$index)"
 
 
-    }
-
-
-    calcTotal() {
-
-      var total = this.intCharg;
-
-      for (var s = 0; s < this.selectedSeats.length; s++) {
-        var row = this.selectedSeats[s].substring(0, 1);
-        if (row == 'A' || row == 'B' || row == 'C')
-          total += 300;
-        else if (row == 'D' || row == 'E' || row == 'F' || row == 'G' || row == 'H')
-          total += 250;
-        else if (row == 'I' || row == 'J' || row == 'K' || row == 'L')
-          total += 200;
-      }
-      this.total = total;
-    }
     sClick($event) {
       var elem = $event.currentTarget || $event.srcElement;
       var id = elem.id;
@@ -85,6 +58,8 @@
       // get find if the clicked seat is in booked seats (onInit)
       //return; and exit this function
 
+      var findBooked = this.bookedSeat.selectedSeats.indexOf(id);
+      if (findBooked > -1) return;
 
       var found = this.selectedSeats.indexOf(id);
       if (found > -1) {
@@ -101,15 +76,21 @@
       this.calcTotal();
     }
 
-    $onInit() {
-      // this.$http.get('/api/seatbookings').then(response => {
-      //   this.AllSeatData = response.data;
-      //   this.socket.syncUpdates('seatbookings', this.AllSeatData);
-      // });
-      //two task 
-      // get seats booked for the date/ time/ theater/ movie/
-      //if seat is booked disable it
-    }//end on init
+
+    calcTotal() {
+      var total = this.intCharg;
+      for (var s = 0; s < this.selectedSeats.length; s++) {
+        var row = this.selectedSeats[s].substring(0, 1);
+        if (row == 'A' || row == 'B' || row == 'C')
+          total += 300;
+        else if (row == 'D' || row == 'E' || row == 'F' || row == 'G' || row == 'H')
+          total += 250;
+        else if (row == 'I' || row == 'J' || row == 'K' || row == 'L')
+          total += 200;
+      }
+      this.total = total;
+    }
+
     goPayment() {
 
       this.$rootScope.book2pay = angular.merge({}, this.book2pay);

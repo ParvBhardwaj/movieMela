@@ -5,6 +5,7 @@
  * GET     /api/seatbookings/:id          ->  show
  * PUT     /api/seatbookings/:id          ->  update
  * DELETE  /api/seatbookings/:id          ->  destroy
+ * GET     /api/seatbookings/booked/:date/:time/:cine/:movie/     =>  show2
  */
 
 'use strict';
@@ -14,15 +15,28 @@ import Seatbooking from './seatbooking.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       res.status(statusCode).json(entity);
     }
   };
 }
 
+//'/booked/:date/:time/:cine/:movie'
+export function show2(req, res) {
+  return Seatbooking.findOne({
+    'date': req.params.date,
+    'time': req.params.time,
+    'cine': req.params.cine,
+    'movie': req.params.movie
+  }).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 function saveUpdates(updates) {
-  return function(entity) {
+  return function (entity) {
     var updated = _.merge(entity, updates);
     return updated.save()
       .then(updated => {
@@ -32,7 +46,7 @@ function saveUpdates(updates) {
 }
 
 function removeEntity(res) {
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       return entity.remove()
         .then(() => {
@@ -43,7 +57,7 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
-  return function(entity) {
+  return function (entity) {
     if (!entity) {
       res.status(404).end();
       return null;
@@ -54,7 +68,7 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }

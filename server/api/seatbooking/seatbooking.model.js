@@ -8,7 +8,7 @@ var SeatbookingSchema = new mongoose.Schema({
   cine: String,
   date: String,
   time: String,
-  seats: [String]
+  selectedSeats: [String]
 });
 
 export default mongoose.model('Seatbooking', SeatbookingSchema);
