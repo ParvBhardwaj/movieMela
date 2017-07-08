@@ -19,7 +19,7 @@
       $scope.$on('$destroy', function () {
         socket.unsyncUpdates('runningmovie');
       });
-      
+
 
     } //end constructor
     $onInit() {
@@ -47,6 +47,7 @@
       this.$rootScope.run2book.city = r.city;
       this.$rootScope.run2book.cine = r.cine;
       console.log(this.$rootScope.run2book);
+      debugger;
     }
 
   }//end class

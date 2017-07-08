@@ -3,7 +3,7 @@
 (function () {
   class SeatbookingComponent {
     constructor($http, $scope, socket, $rootScope, $location) {
-
+      var _this = this;
       this.$http = $http;
       this.socket = socket;
       this.$scope = $scope;
@@ -30,6 +30,10 @@
 
       this.$http.get(uurl)
         .then(response => {
+          this.bookedSeat = {};
+          this.bookedSeat.selectedSeats = [];
+          //initialize before fetch from database
+
           this.bookedSeat = response.data;
           this.socket.syncUpdates('seatbookings', this.bookedSeat);
           console.log(response.data);
@@ -43,6 +47,8 @@
             if (findBooked > -1)
               sx.style = 'background-color:red;'
           }
+        }).catch(function (error) {
+          console.log('Error occurred!', error);
         });
       //disable booked  seats
 
@@ -57,10 +63,13 @@
       //two task 
       // get find if the clicked seat is in booked seats (onInit)
       //return; and exit this function
+      if (typeof this.bookedSeat === 'undefined') this.bookedSeat = {};
+
+      if (typeof this.bookedSeat.selectedSeats === 'undefined') this.bookedSeat.selectedSeats = [];
 
       var findBooked = this.bookedSeat.selectedSeats.indexOf(id);
       if (findBooked > -1) return;
-
+      debugger;
       var found = this.selectedSeats.indexOf(id);
       if (found > -1) {
         elem.style = '';

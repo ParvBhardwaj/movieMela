@@ -41,7 +41,7 @@
                     <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date"> {{d}} </span><br>
                 </div> <br>
                 <a href="/seatbooking">
-                    <div id="p">
+                    <div id="p" ng-show="runningmovieCtrl.$rootScope.run2book.date">
                         <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time"> {{t}} </span>
                     </div>
                 </a>

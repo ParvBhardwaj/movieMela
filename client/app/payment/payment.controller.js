@@ -22,8 +22,9 @@
 
 
     payNow() {
+      alert("Successfull Your Payment has done");
       this.payData.total = this.bookdt.total;
-      
+
       this.$http.post('/api/payments',
         angular.toJson(this.payData)
       );
