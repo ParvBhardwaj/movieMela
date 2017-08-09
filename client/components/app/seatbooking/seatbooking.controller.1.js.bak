@@ -1,0 +1,95 @@
+'use strict';
+
+(function () {
+
+  class SeatbookingComponent {
+    constructor($http, $scope, socket, $rootScope) {
+
+      this.$http = $http;
+      this.socket = socket;
+      this.$scope = $scope;
+      this.$rootScope = $rootScope;
+      console.log($rootScope.run2book);
+      this.book2pay = $rootScope.run2book;
+      this.abcd = 'manish ';
+      // this.selectedSeats = [];
+
+      $scope.$on('$destroy', function () {
+        socket.unsyncUpdates('seatbooking');
+      });
+
+    }
+
+    sClick($event) {
+      var elem = $event.currentTarget || $event.srcElement;
+      // console.log(elem);
+      elem.id;
+    }
+    $onInit2() {
+      var selectedSeats = [];
+      // $(function () {
+      //   $(document).on('click', '.seatno', function (event) {
+      //     var found = selectedSeats.indexOf(event.target.id);
+
+      //     if (found > -1) {
+      //       $('#' + event.target.id).css('background-color', '#FF3333');
+      //       selectedSeats.splice(found, 1);
+      //     }
+      //     else {
+      //       $('#' + event.target.id).css('background-color', '#96FF33');
+      //       selectedSeats.push(event.target.id);
+      //     }
+      //     console.log(selectedSeats);
+      //     var ss = document.getElementById('sSeats');
+      //     ss.innerHTML = selectedSeats.join(', ');
+
+      //     // $('#sSeats').innerHTML = selectedSeats.join(', ');
+      //     // debugger;
+      //   });
+      // });
+      //write code using 
+
+      ;
+
+      var seats = document.getElementsByClassName('seatno');
+      for (var i = 0; i < seats.length; i++) {
+        var sx = seats[i];
+        sx.addEventListener('click', clkFn);
+      }
+
+      sClick($event) {
+        var elem = $event.currentTarget || $event.srcElement;
+
+        alert(JSON.stringify(elem));
+
+        var found = selectedSeats.indexOf(elem.id);
+
+        if (found > -1) {
+          elem.style = '';
+          selectedSeats.splice(found, 1);
+        }
+        else {
+          elem.style = 'background-color:#96FF33;';
+          selectedSeats.push(elem.target.id);
+        }
+
+        console.log(selectedSeats);
+        // var ss = document.getElementById('sSeats');
+        // ss.innerHTML = selectedSeats.join(', ');
+
+        // $('#sSeats').innerHTML = selectedSeats.join(', ');
+        // debugger;
+      }
+    }//end on init
+  }// end class
+
+
+  angular.module('movieMelaApp')
+    .component('seatbooking', {
+      templateUrl: 'app/seatbooking/seatbooking.html',
+      controller: SeatbookingComponent,
+      controllerAs: 'seatbookingCtrl'
+    });
+
+})();
+

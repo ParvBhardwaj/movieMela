@@ -31,18 +31,18 @@
             </ul>
         </div>
         <div class="col-md-3">
-            <div class="row" ng-repeat="r in runningmovieCtrl.selectedmapping track by $index | filter: runningmovieCtrl.selectedmovie.Title">
+            <div class="row" ng-repeat="r in runningmovieCtrl.selectedmapping | filter: runningmovieCtrl.selectedmovie.Title">
                 <!--<pre>{{r}}</pre>-->
                 <!--<span class="btn btn-danger">{{r.date.join(', ')}}</span>
                 <span class="btn btn-info">{{r.time.join(', ')}}</span>-->
                 <h5><span class="btn btn-warning"> {{r.city}}</span>
                     <span class="btn btn-warning"> Theater :{{r.cine}} </span></h5>
                 <div id="button">
-                    <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date track by $index "> {{d}} </span><br>
+                    <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date"> {{d}} </span><br>
                 </div> <br>
                 <a href="/seatbooking">
                     <div id="p" ng-show="runningmovieCtrl.$rootScope.run2book.date">
-                        <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time track by $index "> {{t}} </span>
+                        <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time"> {{t}} </span>
                     </div>
                 </a>
             </div>
