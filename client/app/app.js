@@ -13,13 +13,13 @@ angular.module('movieMelaApp', ['movieMelaApp.auth', 'movieMelaApp.admin', 'movi
   });
 
 
-angular.module('dhirFilmsApp', ['dhirFilmsApp.auth', 'dhirFilmsApp.admin', 'dhirFilmsApp.constants',
-  'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'btford.socket-io', 'validation.match'
-])
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider.otherwise({
-      redirectTo: '/'
-    });
+// angular.module('dhirFilmsApp', ['dhirFilmsApp.auth', 'dhirFilmsApp.admin', 'dhirFilmsApp.constants',
+//   'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'btford.socket-io', 'validation.match'
+// ])
+//   .config(function ($routeProvider, $locationProvider) {
+//     $routeProvider.otherwise({
+//       redirectTo: '/'
+//     });
 
-    $locationProvider.html5Mode(true);
-  });
+//     $locationProvider.html5Mode(true);
+//   });
